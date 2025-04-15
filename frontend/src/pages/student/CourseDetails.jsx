@@ -14,7 +14,7 @@ const CourseDetails = () => {
     const [openSection, setOpenSection] = useState({});
     const [isAlreadyEnrolled, setIsAlreadyEnrolled] = useState(false);
     const [playerData, setPlayerData] = useState(null);
-    const { allCourses, calculateRating, calculateChapterTime, calculateCourseDuration, calculateNoOfLectures, currency } = useContext(AppContext);
+    const { navigate, allCourses, calculateRating, calculateChapterTime, calculateCourseDuration, calculateNoOfLectures, currency } = useContext(AppContext);
 
 
     const fetchCourseData = async () => {
@@ -163,7 +163,7 @@ const CourseDetails = () => {
                                 <p>{calculateNoOfLectures(courseData)} lessons</p>
                             </div>
                         </div>
-                        <button className='md:mt-6 mt-4 w-full py-3 rounded bg-blue-600 text-white font-medium cursor-pointer'>{isAlreadyEnrolled ? 'Already Enrooled' : 'Enroll Now'}</button>
+                        <button onClick={() => navigate("/my-enrollments")} className='md:mt-6 mt-4 w-full py-3 rounded bg-blue-600 text-white font-medium cursor-pointer'>{isAlreadyEnrolled ? 'Already Enrooled' : 'Enroll Now'}</button>
                         <div className='pt-6'>
                             <p className='md:text-xl text-lg font-medium text-gray-800'>What's in the course?</p>
                             <ul className='ml-4 pt-2 text-sm md:text-default list-disc text-gray-500'>
